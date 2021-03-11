@@ -1,0 +1,46 @@
+.container {
+  width: 700px;
+  height: 300px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+#login {
+  border: 1px solid black;
+  padding: 30px;
+  border-radius: 10px;
+  background-image: url(../img/fondo-login.jpg);
+  height: 400px;
+  width: 650px;
+}
+
+h3 {
+  padding: 10px;
+}
+
+#pregunta {
+  text-align: center;
+}
+
+#registrate-aqui {
+  width: 50px;
+  height: 15px;
+  background-color: blueviolet;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+h6 {
+  font-family: verdana;
+  font-weight: bold;
+}
+
+.fa {
+  float: right;
+}
+
+body {
+  background-color: gray;
+}

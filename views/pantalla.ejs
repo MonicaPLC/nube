@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta name='viewport' content='with=device_with, initial-scale=1,maximun-scale=1' user-scalable='no'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <script src="/jquery.js"></script>
+  <script src="/moment-locales.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" type="image/jpg" href="../img/favicon.jpg" />
+  <link rel="stylesheet" href="css/estilos.css">
+  <title>Login</title>
+</head>
+
+<body>
+  <div class="container">
+    <div id="rowsup" class=row>
+
+      <div class="col-4">
+        <img src="/img/foto.png" width="60" height="60" alt="Foto de perfil">
+        <b style='font-family: "Akaya Telivigala" , cursive; font-size: 20px;'>
+          <%=user.name%>
+        </b>
+        <input id="search" type="search" placeholder="buscar">
+        <a id="salir" href="/login">Salir</a>
+      </div>
+
+      <div class="col-8">
+        <img src="/img/perfil_2.jpg" width="60" height="60" alt="Foto de perfil">
+        <li class="menu-item">Silvestre</li>
+
+      </div>
+
+    </div>
+    <div id="rowinf" class=row>
+      <div id="izq" class="col-4">
+
+
+        <ul id="lista">
+          <div id="perfil">
+            <img src="/img/perfil_1.jpg" width="60" height="60" alt="Foto de perfil">
+            <li class="menu-item">Selina</li>
+          </div>
+          <hr>
+          <div id="perfil">
+            <img src="/img/perfil_2.jpg" width="60" height="60" alt="Foto de perfil">
+            <li class="menu-item">Silvestre</li>
+          </div>
+          <hr>
+
+          <div id="perfil">
+            <img src="/img/perfil_3.jpg" width="60" height="60" alt="Foto de perfil">
+            <li class="menu-item">Bola de Nieve</li>
+            <hr>
+          </div>
+
+          <div id="perfil">
+            <img src="/img/perfil_4.jpg" width="60" height="60" alt="Foto de perfil">
+            <li class="menu-item">Garfield</li>
+          </div>
+          <hr>
+
+          <div id="perfil">
+            <img src="/img/perfil_5.jpg" width="60" height="60" alt="Foto de perfil">
+            <li class="menu-item">Tom</li>
+          </div>
+          <hr>
+
+          <div id="perfil">
+            <img src="/img/perfil_6.jpg" width="60" height="60" alt="Foto de perfil">
+            <li class="menu-item">Salem</li>
+          </div>
+          <hr>
+
+          <div id="perfil">
+            <img src="/img/perfil_7.jpg" width="60" height="60" alt="Foto de perfil">
+            <li class="menu-item">Papo</li>
+          </div>
+          <hr>
+
+          <div id="perfil">
+            <img src="/img/perfil_8.jpg" width="60" height="60" alt="Foto de perfil">
+            <li class="menu-item">Tom</li>
+          </div>
+          <hr>
+
+          <div id=perfil>
+            <img src="/img/perfil_9.jpg" width="60" height="60" alt="Foto de perfil">
+            <li class="menu-item">Salem</li>
+          </div>
+          <hr>
+
+          <div id="perfil">
+            <img src="/img/perfil_10.jpg" width="60" height="60" alt="Foto de perfil">
+            <li class="menu-item">Papo</li>
+          </div>
+          <hr>
+
+        </ul>
+
+      </div>
+      <div id="der" class="col-8">
+        <div class="chating">
+
+          <% for (let message of mensaje) { %>
+
+            <% if (message.userId==user.id ) { %>
+
+              <div class="message-out">
+                <div class="text-out">
+                  <h5 class="titulo-out">
+                    <%=message.user.name%>
+                  </h5>
+                  <p class="p-out">
+                    <%=message.message%>
+                  </p>
+                </div>
+
+                <!--<div class="time">${moment().format("HH:mm")}</div>-->
+              </div>
+
+              <% } else { %>
+
+                <div class="message-in">
+
+                  <div class="text-in">
+                    <h5 class="titulo-in">
+                      <%=message.user.name%>
+                    </h5>
+                    <p class="p-in">
+                      <%=message.message%>
+                    </p>
+                  </div>
+
+                  <!-- <div class="time">${moment().format("HH:mm")}</div>-->
+                </div>
+
+
+                <% } %>
+                  <% } %>
+        </div>
+
+
+
+
+
+        <form id="form-message" action="/mensajes" method="POST">
+          <input type="text" name="message" id="mensaje" placeholder="Escribe tu mensaje">
+
+          <i style="font-size:24px" class="fa">&#xf0c6;</i>
+          <i style="font-size:24px" class="fa">&#xf130;</i>
+          <i style="font-size:24px" class="fa">&#xf11a;</i>
+
+          <input id="enviar" type="submit">
+        </form>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+  // variable
+  const socket = io('http://localhost:8000');
+
+  //para que el formulario no se envíe
+  $("#form-message").on("submit", function (event) {
+    event.preventDefault();
+    //pero puedo crear una variable en vez del objeto.
+    //const datos=$("#mensaje").val()
+    // también crear la hora del moment en variable
+    //const hora=moment().format('hh:mm')
+    // creo mi objeto.
+    const datos = {
+      mensaje: $("#mensaje").val(),
+      nombre: "<%=user.name%>"
+    }
+
+    // para no enviar mensajes vacíos.
+    if (datos == "") {
+      alert("no puede enviar un mensaje vacío");
+      return;
+    }
+
+    // dibujo el mensaje en el DOM pero es estático.
+    $(".chating").append(`  
+  <div class="message-out">
+        <div>${datos.nombre}</div>
+        <div>${datos.mensaje}</div>
+ <div>${moment().format("HH:mm")}</div>
+   </div ><br>`
+    );
+
+    /*enviar mensaje por socket se puede 
+    crear una variable objeto en caso que se hayan declarado variables antes.
+    const datos = {
+      text: mensajes,
+      time: hora,
+      user: poner user.name encerrado en esos porcentajes, se refiere al usuario que está en sesión.
+    }*/
+
+    // envío mensaje por socket el message-out (para que lo vea otro usuario)
+    socket.emit('enviar_mensaje', datos);
+
+
+    // para limpiar el input mensaje.
+    $("#mensaje").val("");
+
+    // Mandamos un POST para guardar el mensaje
+    $.post("/mensajes", datos, function (res) {
+      console.log(res)
+    }, "json");
+
+  });
+
+  //recibo mensajes del servidor
+  socket.on('respuesta', function (datos) {
+    //puedo hacer lo mismo pero con mis variables.
+    //entre etiqueta p poner ${mensajes} y entre etiqueta div poner ${hora}
+
+    $(".chating").append(`  
+  <div class="message-out">
+        <div>${datos.nombre}</div>
+        <div>${datos.mensaje}</div>
+ <div>${moment().format("HH:mm")}</div>
+   </div ><br>`
+    );
+
+
+
+    console.log(datos)
+  });
+
+
+</script>
+
+</body>
+
+</html>
